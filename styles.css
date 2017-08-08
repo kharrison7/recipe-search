@@ -1,6 +1,13 @@
 #hereWeFlex{
 height: 500pt;
 width: 500pt;
- border: 1pt solid black;
+border: 1pt solid black;
 
+}
+
+p {
+  height: 120px;
+  width: 120px;
+  background-size: cover;
+  border: 1pt solid blue;
 }
