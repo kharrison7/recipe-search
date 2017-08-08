@@ -28,7 +28,7 @@ fetch(url)
             let result = data.results[i];
             let image_Thumb = document.getElementById('fill' +i);
             let slot = document.getElementById('slot' +i);
-            slot.innerHTML = result.title + "\nIngredients: " + result.ingredients;
+            slot.innerHTML = result.title + "\nIngredients: " + result.ingredients + "\nLink: " + result.href;
             console.log("href: " + result.href);
             console.log("Image: " + result.thumbnail);
 
@@ -38,6 +38,7 @@ fetch(url)
               a = "https://www.shearwater.com/wp-content/plugins/lightbox/images/No-image-found.jpg"
             }
             image_Thumb.setAttribute("style", "background-image: url("+a+");");
+
           }
 
 
