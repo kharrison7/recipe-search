@@ -26,7 +26,7 @@ function getSearch(){
 }
 
 
-let x = 'https://api.github.com/users/kharrison7';
+let x = 'http://recipepuppyproxy.herokuapp.com/api/?i=onions,garlic&q=omelet&p=3';
 fetchGet(x);
 
 function fetchGet(url){
@@ -41,7 +41,7 @@ fetch(url)
       }
       // Examine the text in the response
       response.json().then(function(data) {
-        console.log("data: " + data.login);
+        console.log("Title of Data: " + data.title);
       })
    });
  };
