@@ -52,13 +52,16 @@ fetch(url)
 let fill = ``;
 
 
+// This removes previous search queries.
+let remove_list = document.getElementsByClassName("searched_Result");
+while ( 0 < remove_list.length ){
+ remove_list[0].remove();
+}
 
-
-
-
-
+// This adds in the new search results.
  let clockSpot = document.querySelector( "#all_left_items" );
  let clock       = document.createElement( "div" );
+ clock.setAttribute("class", "searched_Result");
  let liH2     = document.createElement( "h2" );
 
  // This moves the text to the H2.
