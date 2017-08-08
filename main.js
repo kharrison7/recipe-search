@@ -44,37 +44,21 @@ fetch(url)
       }
       // Examine the text in the response
       response.json().then(function(data) {
-        console.log("Title of Data: " + data.title);
+        console.log("Data Result: " + data.results[0].title);
 
 
 
 // This may eventually do something.
-let fill = `${data.title}`;
+let fill = `
+<p>${data.title}</p>
+<br>
+<p>Results: ${data.results}</p>
+
+`;
 
 
 let text_Result = document.getElementById('all_left_items');
 text_Result.innerHTML = fill;
-
-
-// // This removes previous search queries.
-// let remove_list = document.getElementsByClassName("searched_Result");
-// while ( 0 < remove_list.length ){
-//  remove_list[0].remove();
-// }
-
-// This adds in the new search results.
- // let clockSpot = document.querySelector( "#all_left_items" );
- // let clock       = document.createElement( "div" );
- // clock.setAttribute("class", "searched_Result");
- // let liH2     = document.createElement( "h2" );
- //
- // // This moves the text to the H2.
- //     liH2.innerHTML = `Title: ${data.title}` ;
- // // This adds the H2 to the li tile.
- //     clock.appendChild( liH2 );
- // // This adds the li to the itemList.
- //     clockSpot.appendChild( clock );
-
 
    })
  });
