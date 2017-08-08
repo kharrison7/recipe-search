@@ -1,9 +1,9 @@
 console.log("JS On");
 
 function getSearch(){
-  console.log("get_Search Running");
+  // console.log("get_Search Running");
   let search_input = document.getElementById("search_items").value;
-  console.log(`search_input: ` + search_input);
+  // console.log(`search_input: ` + search_input);
 
 
 let x = 'http://recipepuppyproxy.herokuapp.com/api/?q=';
@@ -22,15 +22,16 @@ fetch(url)
       }
       // Examine the text in the response
       response.json().then(function(data) {
-        console.log("Data First Result: " + data.results[0].title);
+        // console.log("Data First Result: " + data.results[0].title);
 
+        // This goes through the results and lists the first 10.
         for (let i = 0; i < 10; i++){
             let result = data.results[i];
             let image_Thumb = document.getElementById('fill' +i);
             let slot = document.getElementById('slot' +i);
-            slot.innerHTML = result.title + "\nIngredients: " + result.ingredients + "\nLink: " + result.href;
-            console.log("href: " + result.href);
-            console.log("Image: " + result.thumbnail);
+            slot.innerHTML = result.title + "\nIngredients: " + result.ingredients + `\nLink: <a>${result.href}</a>`;
+            // console.log("href: " + result.href);
+            // console.log("Image: " + result.thumbnail);
 
             // This puts in 'No Image Found' if the image is absent.
             let a = result.thumbnail;
@@ -38,12 +39,7 @@ fetch(url)
               a = "https://www.shearwater.com/wp-content/plugins/lightbox/images/No-image-found.jpg"
             }
             image_Thumb.setAttribute("style", "background-image: url("+a+");");
-
-          }
-
-
-
-
+            }
 // This may eventually do something.
 // let fill = `
 // <p>${data.title}</p>
@@ -54,10 +50,11 @@ fetch(url)
 // text_Result.innerHTML = fill;
 
    })
+   .catch(function(err) {
+    console.log("Fetch Error: ", err);
+  });
  });
 };
-
-
 }
 
 // end of getSearch function.
